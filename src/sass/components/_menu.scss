@@ -1,0 +1,24 @@
+.Menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  &-Item {
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-Link {
+    display: inline-block;
+    padding: 20px 15px;
+    font-size: 1.2rem;
+
+    &:hover {
+      background-color: #f1f233;
+    }
+  }
+}

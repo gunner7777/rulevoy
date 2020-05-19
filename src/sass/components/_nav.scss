@@ -1,0 +1,10 @@
+.Nav {
+  position: relative;
+  height: 80px;
+}
+
+@include mq-max(768px) {
+  .Nav {
+    height: 70px;
+  }
+}

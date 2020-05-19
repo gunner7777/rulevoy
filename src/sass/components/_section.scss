@@ -1,0 +1,45 @@
+.Section {
+  /* margin-top: 50px; */
+  margin-bottom: 50px;
+
+  &-Title {
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: $primary-text;
+    margin-bottom: 30px;
+  }
+}
+
+@include mq-max(991px) {
+  .Section {
+    &-Title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@include mq-max(767px) {
+  .Section {
+    &-Title {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@include mq-max(575px) {
+  .Section {
+    &-Title {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@include mq-max(400px) {
+  .Section {
+    &-Title {
+      font-size: 1.4rem;
+    }
+  }
+}

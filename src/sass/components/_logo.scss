@@ -1,0 +1,19 @@
+.Logo {
+  &-Img {
+    max-width: 300px;
+  }
+}
+/* 
+@include mq-max(700px) {
+  .Logo {
+    width: 25%;
+  }
+}
+
+@include mq-max(575px) {
+  .Logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+} */
