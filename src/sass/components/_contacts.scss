@@ -1,8 +1,53 @@
 .Contacts {
+  position: relative;
   text-align: right;
 
+  &-Phone {
+    font-size: 1.4rem;
+    margin-bottom: 7px;
+  }
+
   &-Socials {
-    color: #f0f;
-    fill: #f0f;
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 7px;
+    border-radius: 5px;
+    max-width: 240px;
+    padding: 7px 15px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &_Viber {
+      color: #fff;
+      fill: #fff;
+      background-color: #574e92;
+    }
+
+    &_WhatsApp {
+      color: #fff;
+      fill: #fff;
+      background-color: #009688;
+    }
+  }
+
+  &-Icon {
+    pointer-events: none;
+    margin-right: 10px;
+    & > svg {
+      width: 26px;
+    }
   }
 }
