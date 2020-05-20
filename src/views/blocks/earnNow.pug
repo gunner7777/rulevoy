@@ -1,4 +1,47 @@
 section.EarnNow-Outer.Section.Container
   h2.Section-Title Начни зарабатывать сейчас
   .EarnNow
-    p форма для заработка
+  form(action="#").EarnNow-Form
+    .Input-Outer
+      label(for="fio").Input-Label ФИО
+        span.Input-Required *
+        input.Input#fio(type="text" name="fio" placeholder="ФИО")
+    .Input-Outer
+      label(for="phone").Input-Label Телефон
+        span.Input-Required *
+        input.Input#phone(type="text" name="phone" placeholder="Телефон")
+    .Input-Outer
+      label(for="city").Input-Label Город
+        span.Input-Required *
+        input.Input#city(type="text" name="city" placeholder="Город")
+    .Input-Outer
+      input(type="checkbox")
+      span Брендированный автомобиль
+    .Input-Outer
+      label СТС обратная сторона
+        span.Input-Required *
+        input(type="file")
+    .Input-Outer
+      label лицевая сторона Водительского Удостоверения
+        span.Input-Required *
+        input(type="file")
+    .Input-Outer
+      label обратная сторона Водительского Удостоверения
+        span.Input-Required *
+        input(type="file")
+    .Input-Outer
+      label фото паспорта
+        span.Input-Required *
+        input(type="file")
+    .Input-Outer
+      label ваше фото с паспортом
+        span.Input-Required *
+        input(type="file")
+    .Input-Outer
+      label Фото прописки
+        span.Input-Required *
+        input(type="file")
+    .Input-Outer
+      input(type="checkbox")
+      span Аферта и соглашение
+  button.Button.Button_Send Зарабатывать сейчас

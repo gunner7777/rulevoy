@@ -1,0 +1,14 @@
+.ConfPolicy {
+  & > p {
+    margin-bottom: 10px;
+  }
+
+  &-Title {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  &-SubString {
+    margin-left: 15px;
+  }
+}

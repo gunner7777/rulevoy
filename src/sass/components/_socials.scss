@@ -1,17 +1,5 @@
-.Contacts {
-  position: relative;
-  text-align: right;
-
-  &-Phone {
-    font-size: 1.4rem;
-    margin-bottom: 7px;
-  }
-
-  &-Email {
-    font-size: 1.2rem;
-  }
-
-  &-Socials {
+.Socials {
+  &-Item {
     position: relative;
     left: 100%;
     transform: translateX(-100%);
@@ -53,5 +41,14 @@
     & > svg {
       width: 26px;
     }
+  }
+}
+
+.Contacts {
+  text-align: center;
+
+  &-Phone {
+    font-size: 1.4rem;
+    margin-bottom: 7px;
   }
 }

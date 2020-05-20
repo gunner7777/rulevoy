@@ -8,6 +8,10 @@
     color: $primary-text;
     margin-bottom: 30px;
   }
+
+  /* &_WithoutTitle {
+    padding-top: 50px;
+  } */
 }
 
 @include mq-max(991px) {

@@ -1,2 +1,20 @@
-section.Callback-Outer.Section.Container
-  h2.Section-Title Обратный звонок
+section.Callback-Outer.Section.Section_WithoutTitle.Container
+  //h2.Section-Title Обратный звонок
+  .Callback
+    form.Callback-Form(action="#")
+      .Input-Outer
+        label(for="fio").Input-Label ФИО
+          span.Input-Required *
+          input.Input#fio(type="text" name="fio" placeholder="ФИО")
+      .Input-Outer
+        label(for="phone").Input-Label Телефон
+          span.Input-Required *
+          input.Input#phone(type="text" name="phone" placeholder="Телефон")
+      .Input-Outer
+        label(for="city").Input-Label Город
+          span.Input-Required *
+          input.Input#city(type="text" name="city" placeholder="Город")
+      .Input-Outer
+        input.Checkbox#confidentPolicy(type="checkbox" name="confidentPolicy" value=false)
+        span Соглашение
+      button.Button.Button_Send Заказать обратный звонок

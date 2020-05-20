@@ -1,0 +1,24 @@
+.Input {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #babacc;
+  background-color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline-color: #ec555c;
+
+  &-Outer {
+    margin-bottom: 15px;
+  }
+
+  &-Label {
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  &-Required {
+    color: red;
+    margin-left: 7px;
+  }
+}

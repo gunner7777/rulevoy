@@ -1,5 +1,22 @@
 .FooterSection {
   &-Title {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+  }
+
+  &-Item {
+    margin-bottom: 7px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-Link {
+    color: #fff;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #ffa41b;
+    }
   }
 }
