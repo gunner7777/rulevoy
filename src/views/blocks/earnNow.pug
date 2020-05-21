@@ -1,47 +1,55 @@
-section.EarnNow-Outer.Section.Container
-  h2.Section-Title Начни зарабатывать сейчас
+section#EarnNow.EarnNow-Outer.Section.Container
+  h2.Section-Title Начни зарабатывать прямо сейчас
   .EarnNow
   form(action="#").EarnNow-Form
     .Input-Outer
-      label(for="fio").Input-Label ФИО
+      label(for="enFio").Input-Label ФИО
         span.Input-Required *
-        input.Input#fio(type="text" name="fio" placeholder="ФИО")
+        input.Input#enFio(type="text" name="enFio" placeholder="ФИО")
     .Input-Outer
-      label(for="phone").Input-Label Телефон
+      label(for="enPhone").Input-Label Телефон
         span.Input-Required *
-        input.Input#phone(type="text" name="phone" placeholder="Телефон")
+        input.Input#enPhone(type="text" name="enPhone" placeholder="Телефон")
     .Input-Outer
-      label(for="city").Input-Label Город
+      label(for="enCity").Input-Label Город
         span.Input-Required *
-        input.Input#city(type="text" name="city" placeholder="Город")
+        input.Input#enCity(type="text" name="enCity" placeholder="Город")
     .Input-Outer
-      input(type="checkbox")
-      span Брендированный автомобиль
+      input.InputCheckbox(type="checkbox" name="brandAuto" id="brandAuto")
+      label(for="brandAuto") Брендированный автомобиль
+    div
+      h3 Документы
+      .Input-Outer
+        p СТС обратная сторона
+          span.Input-Required *
+        input.InputFile(type="file" name="stsBack" id="stsBack")
+        label.InputFile-Label(for="stsBack") Выберите файл
+      .Input-Outer
+        p лицевая сторона Водительского Удостоверения
+          span.Input-Required *
+        input.InputFile(type="file" name="vodFront" id="vodFront")
+        label.InputFile-Label(for="vodFront") Выберите файл
+      .Input-Outer
+        p обратная сторона Водительского Удостоверения
+          span.Input-Required *
+        input.InputFile(type="file" name="vodBack" id="vodBack")
+        label.InputFile-Label(for="vodBack") Выберите файл
+      .Input-Outer
+        p фото паспорта
+          span.Input-Required *
+        input.InputFile(type="file" name="passport" id="passport")
+        label.InputFile-Label(for="passport") Выберите файл
+      .Input-Outer
+        p ваше фото с паспортом
+          span.Input-Required *
+        input.InputFile(type="file" name="passportSelfie" id="passportSelfie")
+        label.InputFile-Label(for="passportSelfie") Выберите файл
+      .Input-Outer
+        p Фото прописки
+          span.Input-Required *
+        input.InputFile(type="file" name="addressReg" id="addressReg")
+        label.InputFile-Label(for="addressReg") Выберите файл
     .Input-Outer
-      label СТС обратная сторона
-        span.Input-Required *
-        input(type="file")
-    .Input-Outer
-      label лицевая сторона Водительского Удостоверения
-        span.Input-Required *
-        input(type="file")
-    .Input-Outer
-      label обратная сторона Водительского Удостоверения
-        span.Input-Required *
-        input(type="file")
-    .Input-Outer
-      label фото паспорта
-        span.Input-Required *
-        input(type="file")
-    .Input-Outer
-      label ваше фото с паспортом
-        span.Input-Required *
-        input(type="file")
-    .Input-Outer
-      label Фото прописки
-        span.Input-Required *
-        input(type="file")
-    .Input-Outer
-      input(type="checkbox")
-      span Аферта и соглашение
+      input.InputCheckbox(type="checkbox" name="oferta" id="oferta")
+      label(for="oferta") Аферта и соглашение
   button.Button.Button_Send Зарабатывать сейчас
