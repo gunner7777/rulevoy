@@ -1,20 +1,25 @@
-section#Callback.Callback-Outer.Section.Section_WithoutTitle.Container
+section#Callback.Callback-Outer.Section.Container_Wide
   //h2.Section-Title Обратный звонок
-  .Callback
-    form.Callback-Form(action="#")
-      .Input-Outer
-        label(for="cbFio").Input-Label ФИО
-          span.Input-Required *
-          input.Input#cbFio(type="text" name="cbFio" placeholder="ФИО")
-      .Input-Outer
-        label(for="cbPhone").Input-Label Телефон
-          span.Input-Required *
-          input.Input#cbPhone(type="text" name="cbPhone" placeholder="Телефон")
-      .Input-Outer
-        label(for="cbCity").Input-Label Город
-          span.Input-Required *
-          input.Input#cbCity(type="text" name="cbCity" placeholder="Город")
-      .Input-Outer
-        input.InputCheckbox(type="checkbox" name="cbConfidentPolicy" id="cbConfidentPolicy")
-        label(for="cbConfidentPolicy") Соглашение
-      button.Button.Button_Send Заказать обратный звонок
+  img.BgImg(src="./images/taxi-238478_1920s.jpg", alt="")
+  .Container
+    p.Section-BigText.Section-Text_White Подключайся и зарабатывай прямо сейчас!
+    .Callback
+      form.Callback-Form(action="#")
+        .Input-Outer
+          label(for="cbFio").Input-Label ФИО
+            span.Input-Required *
+            input.Input#cbFio(type="text" name="cbFio" placeholder="ФИО" required)
+        .Input-Outer
+          label(for="cbPhone").Input-Label Телефон
+            span.Input-Required *
+            input.Input#cbPhone(type="text" name="cbPhone" placeholder="Телефон" required)
+        .Input-Outer
+          label(for="cbCity").Input-Label Город
+            span.Input-Required *
+            input.Input#cbCity(type="text" name="cbCity" placeholder="Город" required)
+        .Input-Outer
+          input.InputCheckbox(type="checkbox" name="cbConfidentPolicy" id="cbConfidentPolicy" required)
+          label.InputCheckbox-Label.InputCheckbox-Label_AlignTop.InputCheckbox-Label_Small(for="cbConfidentPolicy")
+            span Согласен с&nbsp;
+              a.InputCheckbox-Link(href="") политикой обработки персональных данных
+        button.Button.Button_Disabled.Button_Center Заказать обратный звонок

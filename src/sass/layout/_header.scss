@@ -2,8 +2,10 @@
   align-items: center;
   padding-top: 15px;
   padding-bottom: 30px;
+}
 
-  /* &-Outer {
-    background-color: #f4f4f4;
-  } */
+@include mq-max(767px) {
+  .Header {
+    padding-bottom: 15px;
+  }
 }

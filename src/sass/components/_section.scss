@@ -1,29 +1,36 @@
 .Section {
-  /* margin-top: 50px; */
-  margin-bottom: 50px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
-  /*  &:last-child {
+  &:nth-last-child() {
     margin-bottom: 0;
-  } */
+  }
 
   &-Title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 500;
     color: $primary-text;
     margin-bottom: 30px;
+    text-transform: uppercase;
   }
 
-  /* &_WithoutTitle {
-    padding-top: 50px;
-  } */
+  &-Text_White {
+    color: #fff;
+  }
+
+  &-BigText {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
 }
 
 @include mq-max(991px) {
   .Section {
     &-Title {
-      font-size: 2rem;
+      font-size: 1.9rem;
       margin-bottom: 20px;
     }
   }

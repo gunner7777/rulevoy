@@ -1,55 +1,70 @@
-section#EarnNow.EarnNow-Outer.Section.Container
-  h2.Section-Title Начни зарабатывать прямо сейчас
-  .EarnNow
-  form(action="#").EarnNow-Form
-    .Input-Outer
-      label(for="enFio").Input-Label ФИО
-        span.Input-Required *
-        input.Input#enFio(type="text" name="enFio" placeholder="ФИО")
-    .Input-Outer
-      label(for="enPhone").Input-Label Телефон
-        span.Input-Required *
-        input.Input#enPhone(type="text" name="enPhone" placeholder="Телефон")
-    .Input-Outer
-      label(for="enCity").Input-Label Город
-        span.Input-Required *
-        input.Input#enCity(type="text" name="enCity" placeholder="Город")
-    .Input-Outer
-      input.InputCheckbox(type="checkbox" name="brandAuto" id="brandAuto")
-      label(for="brandAuto") Брендированный автомобиль
-    div
-      h3 Документы
-      .Input-Outer
-        p СТС обратная сторона
-          span.Input-Required *
-        input.InputFile(type="file" name="stsBack" id="stsBack")
-        label.InputFile-Label(for="stsBack") Выберите файл
-      .Input-Outer
-        p лицевая сторона Водительского Удостоверения
-          span.Input-Required *
-        input.InputFile(type="file" name="vodFront" id="vodFront")
-        label.InputFile-Label(for="vodFront") Выберите файл
-      .Input-Outer
-        p обратная сторона Водительского Удостоверения
-          span.Input-Required *
-        input.InputFile(type="file" name="vodBack" id="vodBack")
-        label.InputFile-Label(for="vodBack") Выберите файл
-      .Input-Outer
-        p фото паспорта
-          span.Input-Required *
-        input.InputFile(type="file" name="passport" id="passport")
-        label.InputFile-Label(for="passport") Выберите файл
-      .Input-Outer
-        p ваше фото с паспортом
-          span.Input-Required *
-        input.InputFile(type="file" name="passportSelfie" id="passportSelfie")
-        label.InputFile-Label(for="passportSelfie") Выберите файл
-      .Input-Outer
-        p Фото прописки
-          span.Input-Required *
-        input.InputFile(type="file" name="addressReg" id="addressReg")
-        label.InputFile-Label(for="addressReg") Выберите файл
-    .Input-Outer
-      input.InputCheckbox(type="checkbox" name="oferta" id="oferta")
-      label(for="oferta") Аферта и соглашение
-  button.Button.Button_Send Зарабатывать сейчас
+section#EarnNow.EarnNow-Outer.Section.Container_Wide
+  img.BgImg(src="./images/automobile-1845650.jpg", alt="")
+  .Container
+    h2.Section-Title.Section-Title_White Начни зарабатывать прямо сейчас
+    .EarnNow
+      form(action="#").EarnNow-Form
+        h3.EarnNow-Title.Text_Center Персональная информация
+        div.EarnNow-Personal
+          .Input-Outer
+            label(for="enFio").Input-Label ФИО
+              span.Input-Required *
+              input.Input#enFio(type="text" name="enFio" placeholder="ФИО" required)
+          .Input-Outer
+            label(for="enPhone").Input-Label Телефон
+              span.Input-Required *
+              input.Input#enPhone(type="text" name="enPhone" placeholder="Телефон" required)
+          .Input-Outer
+            label(for="enCity").Input-Label Город
+              span.Input-Required *
+              input.Input#enCity(type="text" name="enCity" placeholder="Город" required)
+          .Input-Outer
+            input.InputCheckbox(type="checkbox" name="brandAuto" id="brandAuto" value="1" required)
+            label.InputCheckbox-Label.InputCheckbox-Label_ForItem.InputCheckbox-Label_AlignCenter(for="brandAuto") Брендированный автомобиль
+
+        h3.EarnNow-Title.Text_Center СТС
+        div.EarnNow-Docs
+          .Input-Outer
+            p.EarnNow-Item Обратная сторона
+              span.Input-Required *
+            input.InputFile(type="file" name="stsBack" id="stsBack" required)
+            label.InputFile-Label(for="stsBack") Загрузить фото
+        h3.EarnNow-Title.Text_Center Водительское удостоверение
+        div.EarnNow-Docs
+          .Input-Outer
+            p.EarnNow-Item Лицевая сторона
+              span.Input-Required *
+            input.InputFile(type="file" name="vodFront" id="vodFront" required)
+            label.InputFile-Label(for="vodFront") Загрузить фото
+          .Input-Outer
+            p.EarnNow-Item Обратная сторона
+              span.Input-Required *
+            input.InputFile(type="file" name="vodBack" id="vodBack" required)
+            label.InputFile-Label(for="vodBack") Загрузить фото
+
+        h3.EarnNow-Title.Text_Center Паспорт
+        div.EarnNow-Docs
+          .Input-Outer
+            p.EarnNow-Item Фото паспорта (страница с фотографией)
+              span.Input-Required *
+            input.InputFile(type="file" name="passport" id="passport" required)
+            label.InputFile-Label(for="passport") Загрузить фото
+          .Input-Outer
+            p.EarnNow-Item Ваше фото с паспортом (селфи с паспортом в руках)
+              span.Input-Required *
+            input.InputFile(type="file" name="passportSelfie" id="passportSelfie" required)
+            label.InputFile-Label(for="passportSelfie") Загрузить фото
+          .Input-Outer
+            p.EarnNow-Item Фото прописки
+              span.Input-Required *
+            input.InputFile(type="file" name="addressReg" id="addressReg" required)
+            label.InputFile-Label(for="addressReg") Загрузить фото
+
+        .EarnNow-Policy
+          input.InputCheckbox(type="checkbox" name="oferta" id="oferta" required)
+          label.InputCheckbox-Label.InputCheckbox-Label_AlignTop.InputCheckbox-Label_Small(for="oferta")
+            span Принимаю условия&nbsp;
+              a.InputCheckbox-Link(href="#") договора оферты
+              | &nbsp;и&nbsp;
+              a.InputCheckbox-Link(href="#") политики обработки персональных данных
+        button.Button.Button_Disabled.Button_Center Зарабатывать сейчас

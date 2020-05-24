@@ -1,6 +1,6 @@
 .Contacts {
   position: relative;
-  text-align: right;
+  text-align: center;
 
   &-Phone {
     font-size: 1.4rem;
@@ -9,6 +9,15 @@
 
   &-Email {
     font-size: 1.2rem;
+  }
+
+  &-Link {
+    color: #222;
+    transition: color 0.2s ease-out;
+
+    &:hover {
+      color: #ffa41b;
+    }
   }
 
   &-Socials {
@@ -53,5 +62,23 @@
     & > svg {
       width: 26px;
     }
+  }
+}
+
+@include mq-max(992px) {
+  .Contacts {
+    &-Phone {
+      font-size: 1.2rem;
+    }
+
+    &-Email {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@include mq-max(767px) {
+  .Contacts {
+    margin-bottom: 20px;
   }
 }

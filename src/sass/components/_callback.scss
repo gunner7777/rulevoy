@@ -1,24 +1,38 @@
 .Callback {
   display: flex;
   flex-flow: column nowrap;
-  max-width: 400px;
+  max-width: 450px;
   padding-top: 30px;
   padding-bottom: 30px;
   margin-left: 30px;
   border-radius: 5px;
-  background-color: rgba(#fff, 0.75);
+  background-color: rgba(#fff, 0.8);
 
   &-Outer {
     padding-top: 50px;
     padding-bottom: 50px;
-    /* height: 400px; */
-    background-image: url(../../images/taxi-238478_1920s.jpg);
-    background-size: cover;
+    position: relative;
   }
 
   &-Form {
-    width: 80%;
+    width: 85%;
     margin-right: auto;
     margin-left: auto;
+    position: relative;
+  }
+}
+
+@include mq-max(850px) {
+  .Callback {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@include mq-max(360px) {
+  .Callback {
+    &-Form {
+      width: 92%;
+    }
   }
 }

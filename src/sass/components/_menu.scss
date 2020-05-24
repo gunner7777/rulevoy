@@ -17,13 +17,70 @@
     padding: 20px 15px;
     font-size: 1.2rem;
     color: #222;
-    /* border-bottom: 3px solid transparent;
-    transition: border-bottom 0.2s ease-out;*/
     transition: color 0.2s ease-out;
 
     &:hover {
       color: #ffa41b;
-      /* border-bottom: 3px solid #315b96; */
+    }
+  }
+}
+
+/* .MobileMenu {
+  &-Button {
+    display: none;
+    cursor: pointer;
+    text-align: right;
+    & > svg {
+      width: 26px;
+      pointer-events: none;
+    }
+  }
+} */
+
+@include mq-max(767px) {
+  .Menu {
+    &-Link {
+      font-size: 1rem;
+    }
+  }
+}
+
+@include mq-max(633px) {
+  .Menu {
+    &-Link {
+      padding: 20px 10px;
+    }
+  }
+}
+
+@include mq-max(604px) {
+  .Menu {
+    flex-flow: column nowrap;
+
+    &-Item {
+      margin-right: 0;
+      width: 100%;
+      text-align: center;
+    }
+    &-Link {
+      display: block;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@include mq-max(500px) {
+  .Menu {
+    &-Link {
+      padding: 15px 15px;
+    }
+  }
+}
+
+@include mq-max(300px) {
+  .Menu {
+    &-Link {
+      font-size: 1rem;
     }
   }
 }

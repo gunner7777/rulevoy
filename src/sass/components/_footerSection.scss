@@ -20,3 +20,9 @@
     }
   }
 }
+
+@include mq-max(575px) {
+  .FooterSection {
+    margin-bottom: 25px;
+  }
+}

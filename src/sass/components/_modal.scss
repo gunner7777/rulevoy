@@ -1,0 +1,32 @@
+.Modal {
+  position: absolute;
+  width: 300px;
+  padding: 30px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  &-Outer {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 160;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+
+    &_Show {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  &-Message {
+    margin-bottom: 30px;
+  }
+}

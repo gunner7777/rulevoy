@@ -1,10 +1,28 @@
 .Button {
+  position: relative;
   max-width: 280px;
   border-radius: 5px;
   border: none;
   padding: 10px 15px;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
 
   &_Send {
-    background-color: #f4f33f;
+    background-color: #035aa6;
+  }
+
+  &_Success {
+    background-color: #3da85b;
+  }
+
+  &_Disabled {
+    background-color: #c9d6df;
+    color: #52616b;
+  }
+
+  &_Center {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

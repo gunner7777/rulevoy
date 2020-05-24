@@ -1,5 +1,191 @@
 .EarnNow {
+  position: relative;
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 5px;
+  background-color: rgba(#fff, 0.8);
+
   &-Outer {
-    background-color: #ececec;
+    position: relative;
+    /* background-color: #ececec; */
+  }
+
+  &-Title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &-Form {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+  }
+
+  &-Personal {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    & > * {
+      width: 45%;
+      margin-right: 15px;
+      margin-left: 15px;
+    }
+  }
+
+  &-Docs {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    & > * {
+      margin-right: 15px;
+      margin-left: 15px;
+      padding: 20px;
+      text-align: center;
+      width: 45%;
+      background-color: #f8f8f8;
+      box-shadow: 0 1px 3px rgba(#035aa6, 0.2);
+    }
+  }
+
+  &-Item {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  &-Policy {
+    position: relative;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@include mq-max(1200px) {
+  .EarnNow {
+    &-Form {
+      width: 90%;
+    }
+  }
+}
+
+@include mq-max(991px) {
+  .EarnNow {
+    &-Form {
+      width: 96%;
+    }
+
+    &-Policy {
+      width: 70%;
+    }
+  }
+}
+
+@include mq-max(767px) {
+  .EarnNow {
+    width: 90%;
+
+    &-Title {
+      margin-top: 20px;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    &-Personal {
+      & > * {
+        margin-right: 0;
+        margin-left: 0;
+        width: 80%;
+      }
+    }
+
+    &-Docs {
+      & > * {
+        margin-right: 0;
+        margin-left: 0;
+        width: 80%;
+      }
+    }
+  }
+}
+
+@include mq-max(660px) {
+  .EarnNow {
+    &-Policy {
+      width: 80%;
+    }
+  }
+}
+
+@include mq-max(560px) {
+  .EarnNow {
+    &-Policy {
+      width: 90%;
+    }
+  }
+}
+
+@include mq-max(500px) {
+  .EarnNow {
+    width: 100%;
+
+    &-Item {
+      font-size: 1rem;
+    }
+
+    &-Personal {
+      & > * {
+        width: 90%;
+      }
+    }
+
+    &-Docs {
+      & > * {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@include mq-max(400px) {
+  .EarnNow {
+    &-Title {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    &-Personal {
+      & > * {
+        width: 95%;
+      }
+    }
+  }
+}
+
+@include mq-max(300px) {
+  .EarnNow {
+    &-Title {
+      font-size: 1rem;
+    }
+
+    &-Personal {
+      & > * {
+        width: 98%;
+      }
+    }
   }
 }

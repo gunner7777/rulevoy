@@ -3,13 +3,15 @@
     max-width: 300px;
   }
 }
-/* 
-@include mq-max(700px) {
+
+@include mq-max(767px) {
   .Logo {
-    width: 25%;
+    margin-bottom: 20px;
+    text-align: center;
   }
 }
 
+/*
 @include mq-max(575px) {
   .Logo {
     width: 100%;

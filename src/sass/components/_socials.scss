@@ -44,11 +44,33 @@
   }
 }
 
-.Contacts {
-  text-align: center;
+@include mq-max(900px) {
+  .Socials {
+    &-Item {
+      padding: 5px 10px;
+    }
 
-  &-Phone {
-    font-size: 1.4rem;
-    margin-bottom: 7px;
+    &-Icon {
+      & > svg {
+        width: 22px;
+      }
+    }
+  }
+}
+
+@include mq-max(767px) {
+  .Socials {
+    &-Item {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@include mq-max(300px) {
+  .Socials {
+    &-Item {
+      padding: 5px 7px;
+    }
   }
 }
