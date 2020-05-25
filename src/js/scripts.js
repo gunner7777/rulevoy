@@ -60,11 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // send callback
   const callbackForm = document.querySelector(".Callback-Form");
+  //console.log("object", callbackForm);
   callbackForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    let that = this;
-    let fd = new FormData();
+    //let that = this;
+    const fd = new FormData();
+    //console.log(document.getElementById("cbFio").value);
     fd.append("cbFio", document.getElementById("cbFio").value);
     fd.append("cbPhone", document.getElementById("cbPhone").value);
     fd.append("cbCity", document.getElementById("cbCity").value);
@@ -97,59 +99,50 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       return false;
 
+    /*     for (var key of fd.entries()) {
+      console.log(key[0] + ", " + key[1]);
+    } */
+
     fetch("http://localhost/taxirul.ru/mailSender.php", {
       method: "POST",
-      mode: "no-cors",
-      //cache: "no-cache",
-      //credentials: 'same-origin',
-      //credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-        //"Content-Type": "application/x-www-form-urlencoded",
-      },
-      //redirect: "follow", // manual, *follow, error
-      //referrerPolicy: "no-referrer", // no-referrer, *client
-      //body: fd,
-      body: { ff: 3 },
+      body: fd,
     })
       .then((response) => {
-        /*  if (response.ok) {
+        if (response.ok) {
           console.log("resp", response.text());
-          that.innerHTML =
-            '<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
-          return response.json();
+          //that.innerHTML =
+          //'<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
+          //return response.json();
         } else {
           console.log("resp err", response.text());
-          that.innerHTML =
-            '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
-        } */
-        return response.json();
+          //that.innerHTML =
+          //  '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
+        }
       })
-      .then((data) => {
-        console.log("data", data);
-      })
-      .catch((err) => {
-        console.log("error", err);
-      });
+      .catch((err) => console.log("error", err));
+    this.reset();
   });
 
   //earn now form
-  /* const earnNowForm = document.querySelector(".EarnNow-Form");
+  const earnNowForm = document.querySelector(".EarnNow-Form");
   earnNowForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    var that = this;
-    var fd = new FormData();
-    fd.append("enFio", document.getElementById("enFio").value);
+    //var that = this;
+    const fd = new FormData(this);
+    /* fd.append("enFio", document.getElementById("enFio").value);
     fd.append("enPhone", document.getElementById("enPhone").value);
     fd.append("enCity", document.getElementById("enCity").value);
-    fd.append("enBrandAuto", document.getElementById("enBrandAuto").value);
+    fd.append(
+      "brandAuto",
+      document.getElementById("brandAuto").checked ? true : false
+    );
     fd.append("stsBack", $("input[type=file]")[0].files[0]);
     fd.append("vodFront", $("input[type=file]")[1].files[0]);
     fd.append("vodBack", $("input[type=file]")[2].files[0]);
     fd.append("passport", $("input[type=file]")[3].files[0]);
     fd.append("passportSelfie", $("input[type=file]")[4].files[0]);
-    fd.append("addressReg", $("input[type=file]")[5].files[0]);
+    fd.append("addressReg", $("input[type=file]")[5].files[0]); */
     fd.append("purpose", "earnNow");
 
     if (
@@ -179,22 +172,29 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       return false;
 
-    $.ajax({
-      type: "POST",
-      url: "http://localhost/mailSend.php",
-      data: fd,
-      contentType: false,
-      processData: false,
-      success: function (data) {
-        that.innerHTML =
-          '<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
-      },
-      error: function (error) {
-        that.innerHTML =
-          '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
-      },
-    });
-  }); */
+    for (var key of fd.entries()) {
+      console.log(key[0] + ", " + key[1]);
+    }
+
+    fetch("http://localhost/taxirul.ru/mailSender.php", {
+      method: "POST",
+      body: fd,
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("resp", response.text());
+          //that.innerHTML =
+          //'<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
+          //return response.json();
+        } else {
+          console.log("resp err", response.text());
+          //.innerHTML =
+          // '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
+        }
+      })
+      .catch((err) => console.log("error", err));
+    this.reset();
+  });
 });
 
 function goToUpButton(gtu, fbh) {
