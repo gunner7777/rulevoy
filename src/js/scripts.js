@@ -97,36 +97,44 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       return false;
 
-    /* that
-      .getElementsByClassName("preloaderMyProject")[0]
-      .classList.add("preloaderMyProject_Active"); */
-    fetch("http://localhost/rulevoy-taxi/mailSender.php", {
+    fetch("http://localhost/taxirul.ru/mailSender.php", {
       method: "POST",
-      mode: "cors",
-      cache: "no-cache",
+      mode: "no-cors",
+      //cache: "no-cache",
       //credentials: 'same-origin',
-      credentials: "include",
+      //credentials: "include",
       headers: {
-        //"Content-Type": "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
+        //"Content-Type": "application/x-www-form-urlencoded",
       },
-      redirect: "follow", // manual, *follow, error
-      referrerPolicy: "no-referrer", // no-referrer, *client
-      body: fd,
-    }).then((response) => {
-      if (response.ok) {
-        that.innerHTML =
-          '<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
+      //redirect: "follow", // manual, *follow, error
+      //referrerPolicy: "no-referrer", // no-referrer, *client
+      //body: fd,
+      body: { ff: 3 },
+    })
+      .then((response) => {
+        /*  if (response.ok) {
+          console.log("resp", response.text());
+          that.innerHTML =
+            '<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
+          return response.json();
+        } else {
+          console.log("resp err", response.text());
+          that.innerHTML =
+            '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
+        } */
         return response.json();
-      } else {
-        that.innerHTML =
-          '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
-      }
-    });
+      })
+      .then((data) => {
+        console.log("data", data);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
   });
 
   //earn now form
-  const earnNowForm = document.querySelector(".EarnNow-Form");
+  /* const earnNowForm = document.querySelector(".EarnNow-Form");
   earnNowForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -171,9 +179,6 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       return false;
 
-    /* that
-      .getElementsByClassName("preloaderMyProject")[0]
-      .classList.add("preloaderMyProject_Active"); */
     $.ajax({
       type: "POST",
       url: "http://localhost/mailSend.php",
@@ -183,17 +188,13 @@ document.addEventListener("DOMContentLoaded", function () {
       success: function (data) {
         that.innerHTML =
           '<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
-        //document.getElementsByClassName('preloaderMyProject')[0].classList.remove('preloaderMyProject_Active');
-        /* that
-          .getElementsByClassName("preloaderMyProject")[0]
-          .classList.remove("preloaderMyProject_Active"); */
       },
       error: function (error) {
         that.innerHTML =
           '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
       },
     });
-  });
+  }); */
 });
 
 function goToUpButton(gtu, fbh) {
