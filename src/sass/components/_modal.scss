@@ -1,6 +1,6 @@
 .Modal {
   position: absolute;
-  width: 300px;
+  width: 400px;
   padding: 30px;
   background-color: #fff;
   top: 50%;
@@ -28,5 +28,17 @@
 
   &-Message {
     margin-bottom: 30px;
+  }
+}
+
+@include mq-max(430px) {
+  .Modal {
+    width: 80%;
+  }
+}
+
+@include mq-max(300px) {
+  .Modal {
+    width: 90%;
   }
 }

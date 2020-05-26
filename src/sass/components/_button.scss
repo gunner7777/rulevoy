@@ -16,7 +16,7 @@
     background-color: #3da85b;
   }
 
-  &_Disabled {
+  &:disabled {
     background-color: #c9d6df;
     color: #52616b;
   }

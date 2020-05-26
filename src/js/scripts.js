@@ -1,3 +1,7 @@
+//button disabled by checkbox +
+// add picture tag
+// captcha?
+
 function TopscrollTo() {
   if (window.scrollY != 0) {
     setTimeout(function () {
@@ -5,6 +9,55 @@ function TopscrollTo() {
       TopscrollTo();
     }, 20);
   }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const firstBlockHeight = 600;
+  const goToUp = document.querySelector(".GoToUp");
+
+  goToUpButton(goToUp, firstBlockHeight);
+
+  window.addEventListener("scroll", function () {
+    goToUpButton(goToUp, firstBlockHeight);
+  });
+
+  disableSubmitButton();
+
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("Menu-Link")) {
+      e.preventDefault();
+      let blockForScroll = document.getElementById(e.target.dataset.toBlockId);
+      blockForScroll.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  });
+
+  //Get all input[type="file"] and set event for change label to filename
+  changeInputsFileLabel();
+
+  const urlMail = "http://localhost/taxirul.ru/mailSender.php";
+
+  toggleSubmitButton();
+
+  // send callback form
+  callbackFormHAndler(urlMail);
+
+  //earn now form
+  earnNowFormHAndler(urlMail);
+});
+
+function toggleSubmitButton() {
+  const policyCheckboxes = document.querySelectorAll(".PolicyAccept");
+  Array.prototype.forEach.call(policyCheckboxes, function (checkbox) {
+    checkbox.addEventListener("change", function (e) {
+      if (e.target.checked) {
+        checkbox.parentNode.nextElementSibling.disabled = false;
+        checkbox.parentNode.nextElementSibling.classList.add("Button_Send");
+      } else {
+        checkbox.parentNode.nextElementSibling.disabled = true;
+        checkbox.parentNode.nextElementSibling.classList.remove("Button_Send");
+      }
+    });
+  });
 }
 
 let checkInputs = function (pattern, checkNode, errorText) {
@@ -27,46 +80,27 @@ let checkInputs = function (pattern, checkNode, errorText) {
   return true;
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-  const firstBlockHeight = 600;
-  const goToUp = document.querySelector(".GoToUp");
+function goToUpButton(gtu, fbh) {
+  if (pageYOffset > fbh) {
+    gtu.classList.add("GoToUp_Show");
+  } else {
+    gtu.classList.remove("GoToUp_Show");
+  }
+}
 
-  goToUpButton(goToUp, firstBlockHeight);
-
-  window.addEventListener("scroll", function () {
-    goToUpButton(goToUp, firstBlockHeight);
+function disableSubmitButton() {
+  const buttons = document.querySelectorAll(".Button-Submit");
+  Array.prototype.forEach.call(buttons, function (button) {
+    button.disabled = true;
   });
+}
 
-  document.addEventListener("click", function (e) {
-    if (e.target.classList.contains("Menu-Link")) {
-      e.preventDefault();
-      let blockForScroll = document.getElementById(e.target.dataset.toBlockId);
-      blockForScroll.scrollIntoView({ block: "start", behavior: "smooth" });
-    }
-  });
-
-  const inputs = document.querySelectorAll(".InputFile");
-  Array.prototype.forEach.call(inputs, function (input) {
-    let label = input.nextElementSibling;
-    let labelVal = label.innerHTML;
-    input.addEventListener("change", function (e) {
-      let fileName = "";
-      fileName = e.target.value.split("\\").pop();
-
-      if (fileName) label.innerHTML = fileName;
-      else label.innerHTML = labelVal;
-    });
-  });
-
-  // send callback
+function callbackFormHAndler(url) {
   const callbackForm = document.querySelector(".Callback-Form");
-  //console.log("object", callbackForm);
   callbackForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    //let that = this;
     const fd = new FormData();
-    //console.log(document.getElementById("cbFio").value);
     fd.append("cbFio", document.getElementById("cbFio").value);
     fd.append("cbPhone", document.getElementById("cbPhone").value);
     fd.append("cbCity", document.getElementById("cbCity").value);
@@ -99,50 +133,24 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       return false;
 
-    /*     for (var key of fd.entries()) {
-      console.log(key[0] + ", " + key[1]);
-    } */
-
-    fetch("http://localhost/taxirul.ru/mailSender.php", {
+    fetch(url, {
       method: "POST",
       body: fd,
     })
       .then((response) => {
-        if (response.ok) {
-          console.log("resp", response.text());
-          //that.innerHTML =
-          //'<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
-          //return response.json();
-        } else {
-          console.log("resp err", response.text());
-          //that.innerHTML =
-          //  '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
-        }
+        formResponseHandler(response);
       })
       .catch((err) => console.log("error", err));
-    this.reset();
+    formCleaner(this);
   });
+}
 
-  //earn now form
+function earnNowFormHAndler(url) {
   const earnNowForm = document.querySelector(".EarnNow-Form");
   earnNowForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    //var that = this;
     const fd = new FormData(this);
-    /* fd.append("enFio", document.getElementById("enFio").value);
-    fd.append("enPhone", document.getElementById("enPhone").value);
-    fd.append("enCity", document.getElementById("enCity").value);
-    fd.append(
-      "brandAuto",
-      document.getElementById("brandAuto").checked ? true : false
-    );
-    fd.append("stsBack", $("input[type=file]")[0].files[0]);
-    fd.append("vodFront", $("input[type=file]")[1].files[0]);
-    fd.append("vodBack", $("input[type=file]")[2].files[0]);
-    fd.append("passport", $("input[type=file]")[3].files[0]);
-    fd.append("passportSelfie", $("input[type=file]")[4].files[0]);
-    fd.append("addressReg", $("input[type=file]")[5].files[0]); */
     fd.append("purpose", "earnNow");
 
     if (
@@ -172,109 +180,64 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       return false;
 
-    for (var key of fd.entries()) {
-      console.log(key[0] + ", " + key[1]);
-    }
-
-    fetch("http://localhost/taxirul.ru/mailSender.php", {
+    fetch(url, {
       method: "POST",
       body: fd,
     })
       .then((response) => {
-        if (response.ok) {
-          console.log("resp", response.text());
-          //that.innerHTML =
-          //'<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
-          //return response.json();
-        } else {
-          console.log("resp err", response.text());
-          //.innerHTML =
-          // '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
-        }
+        formResponseHandler(response);
       })
       .catch((err) => console.log("error", err));
-    this.reset();
+    formCleaner(this);
   });
-});
+}
 
-function goToUpButton(gtu, fbh) {
-  if (pageYOffset > fbh) {
-    gtu.classList.add("GoToUp_Show");
+function formResponseHandler(resp) {
+  const modalOuter = document.querySelector(".Modal-Outer");
+  const modalMessageNode = document.querySelector(".Modal-Message");
+  if (resp.ok) {
+    modalMessageNode.innerHTML =
+      "Спасибо за обращение! Мы с вами свяжемся в ближайшее время";
   } else {
-    gtu.classList.remove("GoToUp_Show");
+    modalMessageNode.innerHTML =
+      "Что-то пошло не так. Пожалуйста, повторите отправку данных";
+  }
+  showAndHideModal(modalOuter);
+}
+
+function showAndHideModal(modal) {
+  modal.classList.add("Modal-Outer_Show");
+  modal.addEventListener("click", function (e) {
+    if (e.target.classList.contains("Button")) {
+      this.classList.remove("Modal-Outer_Show");
+    }
+  });
+  setTimeout(function () {
+    modal.classList.remove("Modal-Outer_Show");
+  }, 6000);
+}
+
+function formCleaner(formHandler) {
+  formHandler.reset();
+  const inputs = formHandler.querySelectorAll(".InputFile");
+  if (inputs.length > 0) {
+    Array.prototype.forEach.call(inputs, function (input) {
+      let label = input.nextElementSibling;
+      label.innerHTML = "Загрузить фото";
+    });
   }
 }
 
-function toggleModal() {
-  const modal = document.querySelector(".Modal-Outer");
-  modal.classList.toggle("Modal-Outer_Show");
-}
-
-/* const callbackForm = document.querySelector('.Callback-Form');
-  callbackForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    var that = this;
-    var fd = new FormData();
-    fd.append("cbFio", document.getElementById(cbFio).value);
-    fd.append("myproject-phone", $("#myproject-phone").val());
-    fd.append("myproject-email", $("#myproject-email").val());
-    fd.append("myproject-technBuild", $("#myproject-technBuild").val());
-    fd.append("myproject-file1", $("input[type=file]")[0].files[0]);
-    fd.append("myproject-file2", $("input[type=file]")[1].files[0]);
-    fd.append("myproject-file3", $("input[type=file]")[2].files[0]);
-    fd.append("myproject-file4", $("input[type=file]")[3].files[0]);
-    fd.append("myproject-file5", $("input[type=file]")[4].files[0]);
-    fd.append("myproject-message", $("#myproject-message").val());
-    fd.append("purpose", "myproject");
-
-    if (
-      !checkInputs(
-        /^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u,
-        document.getElementById("myproject-name"),
-        "Ошибка ввода имени"
-      )
-    )
-      return false;
-
-    if (
-      !checkInputs(
-        /^\d+$/,
-        document.getElementById("myproject-phone"),
-        "Ошибка ввода телефона"
-      )
-    )
-      return false;
-
-    if (
-      !checkInputs(
-        /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,5})+$/,
-        document.getElementById("myproject-email"),
-        "Ошибка ввода электронной почты"
-      )
-    )
-      return false;
-
-    that
-      .getElementsByClassName("preloaderMyProject")[0]
-      .classList.add("preloaderMyProject_Active");
-    $.ajax({
-      type: "POST",
-      url: "http://xn--e1amjcnqa.xn--p1ai/mail_sender2.php",
-      data: fd,
-      contentType: false,
-      processData: false,
-      success: function (data) {
-        that.innerHTML =
-          '<p class="FormZakaz-Result">Спасибо за обращение! Мы с вами свяжемся в ближайшее время</p>';
-        //document.getElementsByClassName('preloaderMyProject')[0].classList.remove('preloaderMyProject_Active');
-        that
-          .getElementsByClassName("preloaderMyProject")[0]
-          .classList.remove("preloaderMyProject_Active");
-      },
-      error: function (error) {
-        that.innerHTML =
-          '<p class="FormZakaz-Result">Возникла ошибка. Пожалуйста, повторите отправку данных</p>';
-      },
+function changeInputsFileLabel() {
+  const inputs = document.querySelectorAll(".InputFile");
+  Array.prototype.forEach.call(inputs, function (input) {
+    let label = input.nextElementSibling;
+    let labelVal = label.innerHTML;
+    input.addEventListener("change", function (e) {
+      let fileName = "";
+      fileName = e.target.value.split("\\").pop();
+      if (fileName) label.innerHTML = fileName;
+      else label.innerHTML = labelVal;
     });
-  }); */
+  });
+}
