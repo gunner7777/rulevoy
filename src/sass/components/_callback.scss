@@ -1,7 +1,7 @@
 .Callback {
   display: flex;
   flex-flow: column nowrap;
-  max-width: 450px;
+  max-width: 600px;
   padding-top: 30px;
   padding-bottom: 30px;
   margin-left: 30px;
@@ -15,7 +15,7 @@
   }
 
   &-Form {
-    width: 85%;
+    width: 70%;
     margin-right: auto;
     margin-left: auto;
     position: relative;
@@ -26,6 +26,14 @@
   .Callback {
     margin-right: auto;
     margin-left: auto;
+  }
+}
+
+@include mq-max(550px) {
+  .Callback {
+    &-Form {
+      width: 80%;
+    }
   }
 }
 

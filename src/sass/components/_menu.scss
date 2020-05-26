@@ -6,9 +6,25 @@
 
   &-Item {
     margin-right: 30px;
+    position: relative;
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &::after {
+      display: none;
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 1px;
+      background-color: rgba(#222, 0.5);
+    }
+
+    &:last-child::after {
+      display: none;
     }
   }
 
@@ -61,6 +77,10 @@
       margin-right: 0;
       width: 100%;
       text-align: center;
+
+      &:after {
+        display: block;
+      }
     }
     &-Link {
       display: block;
