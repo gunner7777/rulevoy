@@ -6,11 +6,10 @@
   padding-top: 30px;
   padding-bottom: 30px;
   border-radius: 5px;
-  background-color: rgba(#fff, 0.8);
+  background-color: rgba($secondary-text, 0.8);
 
   &-Outer {
     position: relative;
-    /* background-color: #ececec; */
   }
 
   &-Title {
@@ -54,8 +53,8 @@
       padding: 20px;
       text-align: center;
       width: 45%;
-      background-color: #f8f8f8;
-      box-shadow: 0 1px 3px rgba(#035aa6, 0.2);
+      background-color: $secondary-accent-2;
+      box-shadow: 0 1px 3px rgba($accent-4, 0.2);
     }
   }
 

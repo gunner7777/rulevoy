@@ -1,7 +1,17 @@
 section#EarnNow.EarnNow-Outer.Section.Container_Wide
-  img.BgImg(src="./images/automobile-1845650.jpg", alt="")
+  picture.BgImg
+    source(media="(max-width: 320px)" srcset="./images/taxi_320.webp" type="image/webp" loading="lazy")
+    source(media="(min-width: 321px) and (max-width: 480px)" srcset="./images/taxi_480.webp" type="image/webp" loading="lazy")
+    source(media="(min-width: 481px) and (max-width: 640px)" srcset="./images/taxi_640.webp" type="image/webp" loading="lazy")
+    source(media="(min-width: 641px) and (max-width: 800px)" srcset="./images/taxi_800.webp" type="image/webp" loading="lazy")
+    source(media="(min-width: 641px) and (max-width: 800px)" srcset="./images/taxi_800.jpg" type="image/jpeg" loading="lazy")
+    source(media="(min-width: 801px) and (max-width: 1024px)" srcset="./images/taxi_1024.webp" type="image/webp" loading="lazy")
+    source(media="(min-width: 1025px) and (max-width: 1920px)" srcset="./images/taxi_1920.webp" type="image/webp" loading="lazy")
+    source(media="(min-width: 1025px) and (max-width: 1920px)" srcset="./images/taxi_1920.jpg" type="image/jpeg" loading="lazy")
+    source(media="(min-width: 1921px)" srcset="./images/taxi_2560.webp" type="image/webp" loading="lazy")
+    source(media="(min-width: 1921px)" srcset="./images/taxi_2560.jpg" type="image/jpeg" loading="lazy")
+    img(src="./images/taxi_1920.jpg", alt="Хочу начать зарабатывать сейчас" loading="lazy")
   .Container
-    //h2.Section-Title.Section-Title_White Начни зарабатывать прямо сейчас
     .EarnNow
       h2.Section-BigText Начни зарабатывать прямо сейчас!
       form(action="#").EarnNow-Form

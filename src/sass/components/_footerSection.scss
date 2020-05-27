@@ -12,11 +12,11 @@
   }
 
   &-Link {
-    color: #fff;
+    color: $secondary-text;
     transition: color 0.3s ease;
 
     &:hover {
-      color: #ffa41b;
+      color: $accent-2;
     }
   }
 }

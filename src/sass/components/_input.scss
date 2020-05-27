@@ -2,12 +2,12 @@
   width: 100%;
   height: 40px;
   border-radius: 5px;
-  border: 1px solid #eeeeee;
-  background-color: #fff;
+  border: 1px solid $secondary-accent-1;
+  background-color: $secondary-bg;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 5px;
-  outline-color: #035aa6;
+  outline-color: $accent-4;
   font-size: 1rem;
 
   &-Outer {
@@ -20,7 +20,7 @@
   }
 
   &-Required {
-    color: #d04e5e;
+    color: $alert;
     margin-left: 7px;
   }
 

@@ -22,16 +22,18 @@
       margin-bottom: 0;
     }
 
+    &_Viber,
+    &_WhatsApp {
+      color: $secondary-text;
+      fill: $secondary-text;
+    }
+
     &_Viber {
-      color: #fff;
-      fill: #fff;
-      background-color: #574e92;
+      background-color: $viber_bg;
     }
 
     &_WhatsApp {
-      color: #fff;
-      fill: #fff;
-      background-color: #009688;
+      background-color: $whatsapp_bg;
     }
   }
 

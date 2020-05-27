@@ -20,7 +20,7 @@
       transform: translateX(-50%);
       width: 70px;
       height: 1px;
-      background-color: rgba(#222, 0.5);
+      background-color: rgba($accent-1, 0.5);
     }
 
     &:last-child::after {
@@ -32,26 +32,14 @@
     display: inline-block;
     padding: 20px 15px;
     font-size: 1.2rem;
-    color: #222;
+    color: $primary-text;
     transition: color 0.2s ease-out;
 
     &:hover {
-      color: #ffa41b;
+      color: $accent-2;
     }
   }
 }
-
-/* .MobileMenu {
-  &-Button {
-    display: none;
-    cursor: pointer;
-    text-align: right;
-    & > svg {
-      width: 26px;
-      pointer-events: none;
-    }
-  }
-} */
 
 @include mq-max(767px) {
   .Menu {

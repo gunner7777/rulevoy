@@ -9,8 +9,8 @@
   & + &-Label {
     font-size: 1rem;
     padding: 10px 20px;
-    color: #fff;
-    background-color: #035aa6;
+    color: $secondary-text;
+    background-color: $primary-bg;
     display: inline-block;
     cursor: pointer;
   }
@@ -21,11 +21,11 @@
 
   &:focus + &-Label,
   & + &-Label:hover {
-    background-color: #d04e5e;
+    background-color: $accent-3;
   }
 
   &:focus + &-Label {
-    outline: 1px dotted #035aa6;
+    outline: 1px dotted $primary-bg;
     outline: -webkit-focus-ring-color auto 5px;
   }
 }

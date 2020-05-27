@@ -5,13 +5,13 @@
   height: 40px;
   bottom: 20px;
   right: 20px;
-  background-color: $primary-alert;
+  background-color: $alert;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: rgba($primary-alert, 0.8);
+    background-color: rgba($alert, 0.8);
   }
 
   &-Img {

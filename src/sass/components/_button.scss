@@ -4,21 +4,21 @@
   border-radius: 5px;
   border: none;
   padding: 10px 15px;
-  color: #fff;
+  color: $secondary-text;
   transition: all 0.2s ease;
   cursor: pointer;
 
   &_Send {
-    background-color: #035aa6;
+    background-color: $primary-bg;
   }
 
   &_Success {
-    background-color: #3da85b;
+    background-color: $accent-5;
   }
 
   &:disabled {
-    background-color: #c9d6df;
-    color: #52616b;
+    background-color: $secondary-accent-4;
+    color: $secondary-accent-3;
   }
 
   &_Center {

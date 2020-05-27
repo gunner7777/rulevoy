@@ -1,7 +1,3 @@
-//button disabled by checkbox +
-// add picture tag
-// captcha?
-
 function TopscrollTo() {
   if (window.scrollY != 0) {
     setTimeout(function () {
@@ -25,9 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("click", function (e) {
     if (e.target.classList.contains("Menu-Link")) {
-      e.preventDefault();
-      let blockForScroll = document.getElementById(e.target.dataset.toBlockId);
-      blockForScroll.scrollIntoView({ block: "start", behavior: "smooth" });
+      if (location.href === "https://taxirul.ru/") {
+        e.preventDefault();
+        let blockForScroll = document.getElementById(
+          e.target.dataset.toBlockId
+        );
+        blockForScroll.scrollIntoView({ block: "start", behavior: "smooth" });
+      }
     }
   });
 

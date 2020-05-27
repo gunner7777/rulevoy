@@ -43,18 +43,16 @@ function styles() {
 }
 
 function scripts() {
-  return (
-    gulp
-      .src(jsIn)
-      .pipe(concat("scripts.min.js"))
-      .pipe(
-        babel({
-          presets: ["@babel/preset-env"],
-        })
-      )
-      //.pipe(uglify())
-      .pipe(gulp.dest(jsOut))
-  );
+  return gulp
+    .src(jsIn)
+    .pipe(concat("scripts.min.js"))
+    .pipe(
+      babel({
+        presets: ["@babel/preset-env"],
+      })
+    )
+    .pipe(uglify())
+    .pipe(gulp.dest(jsOut));
 }
 
 function html() {
