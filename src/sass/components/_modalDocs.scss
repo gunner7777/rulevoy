@@ -1,11 +1,15 @@
-.Modal {
+.ModalDocs {
   position: absolute;
-  width: 400px;
+  max-width: 1200px;
+  /* width: 400px; */
+  width: 1000px;
   padding: 30px;
   background-color: $secondary-bg;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: auto;
+  max-height: 90vh;
 
   &-Outer {
     display: none;
@@ -29,16 +33,21 @@
     margin-bottom: 30px;
     text-align: center;
   }
+
+  &-Title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
 }
 
 @include mq-max(430px) {
-  .Modal {
+  .ModalDocs {
     width: 80%;
   }
 }
 
 @include mq-max(300px) {
-  .Modal {
+  .ModalDocs {
     width: 90%;
   }
 }

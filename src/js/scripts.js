@@ -21,20 +21,58 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("click", function (e) {
     if (e.target.classList.contains("Menu-Link")) {
-      if (location.href === "https://taxirul.ru/") {
-        e.preventDefault();
-        let blockForScroll = document.getElementById(
-          e.target.dataset.toBlockId
-        );
-        blockForScroll.scrollIntoView({ block: "start", behavior: "smooth" });
-      }
+      e.preventDefault();
+      let blockForScroll = document.getElementById(e.target.dataset.toBlockId);
+      blockForScroll.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+
+    if (e.target.classList.contains("ModalDocs-Outer")) {
+      e.target.classList.remove("ModalDocs-Outer_Show");
+    }
+    if (e.target.classList.contains("Button_ModalClose")) {
+      e.target.parentNode.parentNode.classList.remove("ModalDocs-Outer_Show");
+    }
+
+    if (e.target.classList.contains("Policy-Link")) {
+      e.preventDefault();
+      fetch("https://taxirul.ru/confPolicy.php", {
+        method: "GET",
+        cors: "no-mode",
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          document.querySelector(".ModalDocs-Text").innerHTML = data.text;
+          document
+            .querySelector(".ModalDocs-Outer")
+            .classList.add("ModalDocs-Outer_Show");
+        });
+    }
+
+    if (e.target.classList.contains("Oferta-Link")) {
+      e.preventDefault();
+      fetch("https://taxirul.ru/dogOferta.php", {
+        method: "GET",
+        cors: "no-mode",
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          document.querySelector(".ModalDocs-Text").innerHTML = data.text;
+          document
+            .querySelector(".ModalDocs-Outer")
+            .classList.add("ModalDocs-Outer_Show");
+        });
     }
   });
 
   //Get all input[type="file"] and set event for change label to filename
   changeInputsFileLabel();
 
-  const urlMail = "http://localhost/taxirul.ru/mailSender.php";
+  //const urlMail = "http://localhost/taxirul.ru/mailSender.php";
+  const urlMail = "https://taxirul.ru/api/mailSender.php";
 
   toggleSubmitButton();
 
@@ -104,6 +142,7 @@ function callbackFormHAndler(url) {
     fd.append("cbFio", document.getElementById("cbFio").value);
     fd.append("cbPhone", document.getElementById("cbPhone").value);
     fd.append("cbCity", document.getElementById("cbCity").value);
+
     fd.append("purpose", "callback");
 
     if (
@@ -133,14 +172,24 @@ function callbackFormHAndler(url) {
     )
       return false;
 
-    fetch(url, {
-      method: "POST",
-      body: fd,
-    })
-      .then((response) => {
-        formResponseHandler(response);
-      })
-      .catch((err) => console.log("error", err));
+    grecaptcha.ready(function () {
+      grecaptcha
+        .execute("6LepZf0UAAAAAHdDGwsItYSQGQRrZktN0ijHvOq-", {
+          action: "homepage",
+        })
+        .then(function (token) {
+          fd.append("g-recaptcha-response", token);
+
+          fetch(url, {
+            method: "POST",
+            body: fd,
+          })
+            .then((response) => {
+              formResponseHandler(response);
+            })
+            .catch((err) => console.log("error", err));
+        });
+    });
     formCleaner(this);
   });
 }
@@ -180,14 +229,24 @@ function earnNowFormHAndler(url) {
     )
       return false;
 
-    fetch(url, {
-      method: "POST",
-      body: fd,
-    })
-      .then((response) => {
-        formResponseHandler(response);
-      })
-      .catch((err) => console.log("error", err));
+    grecaptcha.ready(function () {
+      grecaptcha
+        .execute("6LepZf0UAAAAAHdDGwsItYSQGQRrZktN0ijHvOq-", {
+          action: "homepage",
+        })
+        .then(function (token) {
+          fd.append("g-recaptcha-response", token);
+
+          fetch(url, {
+            method: "POST",
+            body: fd,
+          })
+            .then((response) => {
+              formResponseHandler(response);
+            })
+            .catch((err) => console.log("error", err));
+        });
+    });
     formCleaner(this);
   });
 }
@@ -202,6 +261,7 @@ function formResponseHandler(resp) {
     modalMessageNode.innerHTML =
       "Что-то пошло не так. Пожалуйста, повторите отправку данных";
   }
+
   showAndHideModal(modalOuter);
 }
 

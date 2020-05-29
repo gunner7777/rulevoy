@@ -25,4 +25,16 @@
     left: 50%;
     transform: translateX(-50%);
   }
+
+  &_ModalClose {
+    position: fixed;
+    position: sticky;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    left: 100%;
+    top: 0;
+    font-size: 1.2rem;
+    background-color: $accent-3;
+  }
 }
