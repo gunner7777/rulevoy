@@ -2,11 +2,49 @@
   &-Img {
     max-width: 300px;
   }
+
+  &-Partner {
+    margin-top: 5px;
+    text-align: right;
+    max-width: 300px;
+  }
+
+  &-PartnerText {
+    font-size: 1.2rem;
+  }
+
+  &-PartnerName {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  &-PartnerIcon {
+    color: $accent-3;
+  }
 }
 
 @include mq-max(767px) {
   .Logo {
     margin-bottom: 20px;
     text-align: center;
+
+    &-Partner {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@include mq-max(350px) {
+  .Logo {
+    &-PartnerText {
+      font-size: 1rem;
+    }
+
+    &-PartnerName {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
   }
 }

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       fetch("https://taxirul.ru/confPolicy.php", {
         method: "GET",
-        cors: "no-mode",
+        //cors: "no-mode",
       })
         .then((response) => {
           return response.json();
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       fetch("https://taxirul.ru/dogOferta.php", {
         method: "GET",
-        cors: "no-mode",
+        //cors: "no-mode",
       })
         .then((response) => {
           return response.json();

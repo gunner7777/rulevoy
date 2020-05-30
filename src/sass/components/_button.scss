@@ -36,5 +36,12 @@
     top: 0;
     font-size: 1.2rem;
     background-color: $accent-3;
+
+    & > svg {
+      width: 20px;
+      height: 20px;
+      fill: $secondary-text;
+      pointer-events: none;
+    }
   }
 }
