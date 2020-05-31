@@ -51,7 +51,7 @@ function scripts() {
         presets: ["@babel/preset-env"],
       })
     )
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(jsOut));
 }
 

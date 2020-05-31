@@ -30,7 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
       e.target.classList.remove("ModalDocs-Outer_Show");
     }
     if (e.target.classList.contains("Button_ModalClose")) {
-      e.target.parentNode.parentNode.classList.remove("ModalDocs-Outer_Show");
+      e.target.parentNode.parentNode.parentNode.classList.remove(
+        "ModalDocs-Outer_Show"
+      );
     }
 
     if (e.target.classList.contains("Policy-Link")) {
@@ -43,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((data) => {
+          document.querySelector(".ModalDocs-Title").innerHTML = data.title;
           document.querySelector(".ModalDocs-Text").innerHTML = data.text;
           document
             .querySelector(".ModalDocs-Outer")
@@ -60,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((data) => {
+          document.querySelector(".ModalDocs-Title").innerHTML = data.title;
           document.querySelector(".ModalDocs-Text").innerHTML = data.text;
           document
             .querySelector(".ModalDocs-Outer")

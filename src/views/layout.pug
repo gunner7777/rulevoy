@@ -4,6 +4,10 @@ html(lang="ru")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(
+      name="description"
+      content="Быстрое подключение, самая низкая стоимость смены и комиссия парка, постоянный поток заказов. Присоединяйся и зарабатывай!"
+    )
     link(
       rel="stylesheet"
       href="css/style.min.css"
@@ -11,19 +15,17 @@ html(lang="ru")
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48">
-    title Таксопарк "Рулевой"
+    title Таксопарк "Рулевой" - официальный партнер Яндекс Такси.
   body
     include blocks/header.pug
     include blocks/menu.pug
-    //include blocks/oferta.pug
-    include blocks/callback.pug
-    include blocks/advantages.pug
-    include blocks/earnNow.pug
+    include blocks/policy.pug
+    //include blocks/callback.pug
+    //include blocks/advantages.pug
+    //include blocks/earnNow.pug
     include blocks/footer.pug
-    //include blocks/policy.pug
-    //include blocks/oferta.pug
     include blocks/gotoup.pug
-    include blocks/modal.pug
-    include blocks/modalDocs.pug
+    //include blocks/modal.pug
+    //include blocks/modalDocs.pug
     script(src="https://www.google.com/recaptcha/api.js?render=6LepZf0UAAAAAHdDGwsItYSQGQRrZktN0ijHvOq-" async defer)
     script(src="./js/scripts.min.js")
