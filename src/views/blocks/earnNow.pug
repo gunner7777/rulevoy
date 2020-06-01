@@ -38,19 +38,19 @@ section#EarnNow.EarnNow-Outer.Section.Container_Wide
           .Input-Outer
             p.EarnNow-Item Обратная сторона
               span.Input-Required *
-            input.InputFile(type="file" name="stsBack" id="stsBack" required)
+            input.InputFile(type="file" name="stsBack" id="stsBack" accept="image/*" required)
             label.InputFile-Label(for="stsBack") Загрузить фото
         h3.EarnNow-Title.Text_Center Водительское удостоверение
         div.EarnNow-Docs
           .Input-Outer
             p.EarnNow-Item Лицевая сторона
               span.Input-Required *
-            input.InputFile(type="file" name="vodFront" id="vodFront" required)
+            input.InputFile(type="file" name="vodFront" id="vodFront" accept="image/*" required)
             label.InputFile-Label(for="vodFront") Загрузить фото
           .Input-Outer
             p.EarnNow-Item Обратная сторона
               span.Input-Required *
-            input.InputFile(type="file" name="vodBack" id="vodBack" required)
+            input.InputFile(type="file" name="vodBack" id="vodBack" accept="image/*" required)
             label.InputFile-Label(for="vodBack") Загрузить фото
 
         h3.EarnNow-Title.Text_Center Паспорт
@@ -58,24 +58,24 @@ section#EarnNow.EarnNow-Outer.Section.Container_Wide
           .Input-Outer
             p.EarnNow-Item Фото паспорта (страница с фотографией)
               span.Input-Required *
-            input.InputFile(type="file" name="passport" id="passport" required)
+            input.InputFile(type="file" name="passport" id="passport" accept="image/*" required)
             label.InputFile-Label(for="passport") Загрузить фото
           .Input-Outer
             p.EarnNow-Item Ваше фото с паспортом (селфи с паспортом в руках)
               span.Input-Required *
-            input.InputFile(type="file" name="passportSelfie" id="passportSelfie" required)
+            input.InputFile(type="file" name="passportSelfie" id="passportSelfie" accept="image/*" required)
             label.InputFile-Label(for="passportSelfie") Загрузить фото
           .Input-Outer
             p.EarnNow-Item Фото прописки
               span.Input-Required *
-            input.InputFile(type="file" name="addressReg" id="addressReg" required)
+            input.InputFile(type="file" name="addressReg" id="addressReg" accept="image/*" required)
             label.InputFile-Label(for="addressReg") Загрузить фото
 
         .EarnNow-Policy
           input.InputCheckbox.PolicyAccept(type="checkbox" name="oferta" id="oferta" required)
           label.InputCheckbox-Label.InputCheckbox-Label_AlignTop.InputCheckbox-Label_Small(for="oferta")
             span Принимаю условия&nbsp;
-              a.InputCheckbox-Link(href="#") договора оферты
+              a.InputCheckbox-Link.Oferta-Link(href="#") договора оферты
               | &nbsp;и&nbsp;
-              a.InputCheckbox-Link(href="#") политики обработки персональных данных
+              a.InputCheckbox-Link.Policy-Link(href="#") политики обработки персональных данных
         button.Button.Button_Center.Button-Submit Зарабатывать сейчас
