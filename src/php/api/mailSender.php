@@ -13,6 +13,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/api/mail/mail_template.php";
 
 if(isset($_POST['purpose']) && isset($_POST['g-recaptcha-response'])) {
   $captcha = $_POST['g-recaptcha-response'];
+  // add secret key Recaptcha v3
+  $secret   = '';
   $response = file_get_contents(
       "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']
   );
