@@ -36,6 +36,11 @@ section#EarnNow.EarnNow-Outer.Section.Container_Wide
         h3.EarnNow-Title.Text_Center СТС
         div.EarnNow-Docs
           .Input-Outer
+            p.EarnNow-Item Лицевая сторона
+              span.Input-Required *
+            input.InputFile(type="file" name="stsFront" id="stsFront" accept="image/*" required)
+            label.InputFile-Label(for="stsFront") Загрузить фото
+          .Input-Outer
             p.EarnNow-Item Обратная сторона
               span.Input-Required *
             input.InputFile(type="file" name="stsBack" id="stsBack" accept="image/*" required)

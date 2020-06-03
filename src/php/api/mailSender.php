@@ -13,7 +13,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/api/mail/mail_template.php";
 
 if(isset($_POST['purpose']) && isset($_POST['g-recaptcha-response'])) {
   $captcha = $_POST['g-recaptcha-response'];
-  $secret   = '6LepZf0UAAAAAKb0wKpyiGLBcc2Xdty17eR3w4fe';
+  // add secret key Recaptcha v3
+  $secret   = '';
   $response = file_get_contents(
       "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']
   );
@@ -53,7 +54,6 @@ if(isset($_POST['purpose']) && isset($_POST['g-recaptcha-response'])) {
     $mail = new MailSender;
     $mail->messageSubject = $messagePurpose;
     $mail->sendMail($mailTemplate);
-    
   }
 } else {
   header('HTTP/1.1 500 Internal Server Error');

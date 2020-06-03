@@ -1,6 +1,7 @@
 .FooterSection {
   &-Title {
     margin-bottom: 12px;
+    font-size: 1.3rem;
   }
 
   &-Item {
@@ -13,6 +14,7 @@
 
   &-Link {
     color: $secondary-text;
+    font-size: 1.1rem;
     transition: color 0.3s ease;
 
     &:hover {
@@ -24,5 +26,18 @@
 @include mq-max(575px) {
   .FooterSection {
     margin-bottom: 25px;
+  }
+}
+
+@include mq-max(400px) {
+  .FooterSection {
+    &-Title {
+      font-size: 1.2rem;
+    }
+
+    &-Link {
+      color: $secondary-text;
+      font-size: 1rem;
+    }
   }
 }

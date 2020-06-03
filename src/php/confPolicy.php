@@ -48,7 +48,7 @@ $text = "<div class='ConfPolicy'>
   <p>БИК: 044525999</p>
   <p>&nbsp;</p>
   <p>Адрес электронной почты: v754026@yandex.ru</p>
-  <p>Телефоны: 8-900-524-81-11, 8(8332) 75-46-20</p>
+  <p>Телефоны: 8-900-524-81-11, 8(8332) 75-40-26</p>
 </div>";
 
 echo json_encode(array("title" => $title, "text" => $text));

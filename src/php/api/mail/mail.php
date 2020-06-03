@@ -40,6 +40,7 @@ class MailSender {
     $this->mail->AltBody = 'HTML not supported';
 
     if($this->messageSubject == "Хочу зарабатывать сейчас") {
+      $this->mail->addAttachment($_FILES['stsFront']['tmp_name'], 'СТС_лицевая.jpg');
       $this->mail->addAttachment($_FILES['stsBack']['tmp_name'], 'СТС_обратная.jpg');
       $this->mail->addAttachment($_FILES['vodFront']['tmp_name'], 'Водительское_лицевая.jpg');
       $this->mail->addAttachment($_FILES['vodBack']['tmp_name'], 'Водительское_обратная.jpg');

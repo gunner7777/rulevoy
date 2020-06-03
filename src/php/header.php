@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="Contacts Col12 ColMd4 ColLg4">
-          <p class="Contacts-Phone"><a class="Contacts-Link" href="tel:+78332754026" target="_blank" rel="noopener">8(8332) 75-46-20</a></p>
+          <p class="Contacts-Phone"><a class="Contacts-Link" href="tel:+78332754026" target="_blank" rel="noopener">8(8332) 75-40-26</a></p>
           <p class="Contacts-Phone"><a class="Contacts-Link" href="tel:+79005248111" target="_blank" rel="noopener">8-900-524-81-11</a></p>
           <p class="Contacts-Email"><a class="Contacts-Link" href="mailto:v754026@yandex.ru" target="_blank" rel="noopener">v754026@yandex.ru</a></p>
         </div>
@@ -60,7 +60,7 @@
           </div>
       </div>
     </header>
-    <nav class="Menu-Outer Container">
+    <nav class="Menu-Outer Container_Wide">
       <ul class="Menu">
         <li class="Menu-Item"><a class="Menu-Link" href="https://taxirul.ru#Callback" data-to-block-id="Callback">Обратный звонок</a></li>
         <li class="Menu-Item"><a class="Menu-Link" href="https://taxirul.ru#Advantages" data-to-block-id="Advantages">Наши преимущества</a></li>

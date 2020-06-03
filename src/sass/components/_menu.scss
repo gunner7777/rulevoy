@@ -4,6 +4,10 @@
   justify-content: center;
   align-items: center;
 
+  &-Outer {
+    background-color: $accent-2;
+  }
+
   &-Item {
     margin-right: 30px;
     position: relative;
@@ -18,9 +22,9 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      width: 70px;
+      width: 60%;
       height: 1px;
-      background-color: rgba($accent-1, 0.5);
+      background-color: $secondary-bg;
     }
 
     &:last-child::after {
@@ -31,12 +35,14 @@
   &-Link {
     display: inline-block;
     padding: 20px 15px;
-    font-size: 1.2rem;
-    color: $primary-text;
-    transition: color 0.2s ease-out;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: $secondary-text;
+    transition: all 0.2s ease-out;
 
     &:hover {
       color: $accent-2;
+      background-color: #fff;
     }
   }
 }
@@ -44,12 +50,12 @@
 @include mq-max(767px) {
   .Menu {
     &-Link {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
 }
 
-@include mq-max(633px) {
+@include mq-max(698px) {
   .Menu {
     &-Link {
       padding: 20px 10px;
@@ -57,7 +63,7 @@
   }
 }
 
-@include mq-max(604px) {
+@include mq-max(668px) {
   .Menu {
     flex-flow: column nowrap;
 

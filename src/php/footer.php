@@ -10,14 +10,14 @@
           </div>
           <div class="FooterSection Col12 ColSm4 ColMd4 ColLg4">
             <h3 class="FooterSection-Title">Контакты</h3>
-            <p class="FooterSection-Item"><a class="FooterSection-Link" href="tel:+78332754026" target="_blank" rel="noopener">8(8332) 75-46-20</a></p>
+            <p class="FooterSection-Item"><a class="FooterSection-Link" href="tel:+78332754026" target="_blank" rel="noopener">8(8332) 75-40-26</a></p>
             <p class="FooterSection-Item"><a class="FooterSection-Link" href="tel:+79005248111" target="_blank" rel="noopener">8-900-524-81-11</a></p>
             <p class="FooterSection-Item"><a class="FooterSection-Link" href="mailto:v754026@yandex.ru" target="_blank" rel="noopener">v754026@yandex.ru</a></p>
           </div>
         </div>
         <div class="Copyright Text_Center">
           <p class="Copyright-Text">При использовании материалов сайта ссылка на первоисточник обязательна. Все права защищены.</p>
-          <p class="Copyright-Text">&copy; 2020, ООО «РУЛЕВОЙ»</p>
+          <p class="Copyright-Text">&copy; 2020, Таксопарк «РУЛЕВОЙ»</p>
         </div>
       </div>
     </footer>

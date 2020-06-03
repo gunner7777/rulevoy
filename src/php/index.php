@@ -112,6 +112,11 @@
         <h3 class="EarnNow-Title Text_Center">СТС</h3>
         <div class="EarnNow-Docs">
           <div class="Input-Outer">
+            <p class="EarnNow-Item">Лицевая сторона<span class="Input-Required">*</span></p>
+            <input class="InputFile" type="file" name="stsFront" id="stsFront" accept="image/*" required="required"/>
+            <label class="InputFile-Label" for="stsFront">Загрузить фото</label>
+          </div>
+          <div class="Input-Outer">
             <p class="EarnNow-Item">Обратная сторона<span class="Input-Required">*</span></p>
             <input class="InputFile" type="file" name="stsBack" id="stsBack" accept="image/*" required="required"/>
             <label class="InputFile-Label" for="stsBack">Загрузить фото</label>
